@@ -14,10 +14,12 @@ const game = document.querySelector('#game'),
 
 guessBtn.addEventListener('click', function () {
   let guess = parseInt(guessInput.value)
-
+  // check for stupidity
+  if (guess > 100 || guess < 1 || isNaN(guess)) {
+    setMessage(`I asked for an INTEGER between 1 and 100.`)
+  }
   // win condition
-
-  if (guess === randomNumber) {
+  else if (guess === randomNumber) {
     setMessage(
       `Congratulations. ${randomNumber} is correct. You should be really proud of yourself.`
     )
